@@ -11,6 +11,18 @@ from sklearn.utils import shuffle
 import imutils
 import numpy as np
 
+model = Sequential([
+    Conv2D(100, (3,3), activation='relu', input_shape=(150, 150, 3)),
+    MaxPooling2D(2,2),
+    
+    Conv2D(100, (3,3), activation='relu'),
+    MaxPooling2D(2,2),
+    
+    Flatten(),
+    Dropout(0.5),
+    Dense(50, activation='relu'),
+    Dense(2, activation='relu')
+])
 
 
 
