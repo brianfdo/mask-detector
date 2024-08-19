@@ -27,7 +27,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--data", required=True,
                 help="path to dataset")
 ap.add_argument("-m", "--model", type=str,
-                default="mask_detector.model",
+                default="mask_detector.model.keras",
                 help="path to mask detector model")
 args = vars(ap.parse_args())
 

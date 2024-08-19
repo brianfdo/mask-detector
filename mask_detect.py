@@ -14,10 +14,10 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True,
 	help="path to input image")
 ap.add_argument("-f", "--face", type=str,
-	default="face_detector",
+	default="face_detector_model",
 	help="path to face detector model directory")
 ap.add_argument("-m", "--model", type=str,
-	default="mask_detector.model",
+	default="mask_detector.model.keras",
 	help="path to trained face mask detector model")
 args = vars(ap.parse_args())
 

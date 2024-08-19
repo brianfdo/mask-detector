@@ -51,7 +51,7 @@ def mask_detection(frame, mask_model, face_model):
 			# preprocess face image
 			face = img_to_array(face)
 			face = preprocess_input(face)
-			face = np.expand_dims(face, axis=0)
+			# face = np.expand_dims(face, axis=0)
 
 			# append face and bounding boxes to lists
 			faces.append(face)
@@ -59,7 +59,6 @@ def mask_detection(frame, mask_model, face_model):
 
 	# only make a predictions if at least one face was detected
 	if len(faces) > 0:
-
 		# For faster inference, make batch predictions on faces at the same time rather than sequentially in above loop
 		faces = np.array(faces, dtype="float32")
 		preds = mask_model.predict(faces, batch_size=32)
@@ -70,10 +69,10 @@ def mask_detection(frame, mask_model, face_model):
 # parse arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--face", type=str,
-	default="face_detector",
+	default="face_detector_model",
 	help="path to face detector model directory")
 ap.add_argument("-m", "--model", type=str,
-	default="mask_detector.model",
+	default="mask_detector.model.keras",
 	help="path to trained face mask detector model")
 args = vars(ap.parse_args())
 
